@@ -39,11 +39,12 @@ export default class PagerTitleIndicator extends Component {
             this.props.itemStyle != nextProps.itemStyle ||
             this.props.itemTextStyle != nextProps.itemTextStyle ||
             this.props.selectedItemTextStyle != nextProps.selectedItemTextStyle ||
-            this.props.selectedBorderStyle != nextProps.selectedBorderStyle
+            this.props.selectedBorderStyle != nextProps.selectedBorderStyle ||
+            this.props.borderStyle != nextProps.borderStyle
     }
 
     render () {
-        let {titles, pager, itemStyle, itemTextStyle, selectedItemTextStyle, selectedBorderStyle} = this.props
+        let {titles, pager, itemStyle, itemTextStyle, selectedItemTextStyle, selectedBorderStyle, borderStyle} = this.props
         if (!titles || titles.length === 0)return null
 
         let titleViews = titles.map((title, index) => {
