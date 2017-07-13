@@ -17,6 +17,7 @@ export default class PagerTitleIndicator extends Component {
         titles: PropTypes.arrayOf(PropTypes.string).isRequired,
         itemStyle: View.propTypes.style,
         itemTextStyle: Text.propTypes.style,
+        borderStyle: View.propTypes.style,
         selectedItemTextStyle: Text.propTypes.style,
         selectedBorderStyle: View.propTypes.style,
         renderTitle: PropTypes.func
@@ -62,7 +63,7 @@ export default class PagerTitleIndicator extends Component {
                     onPress={() => {!isSelected && pager.setPage(index)}}
                 >
                     {titleView}
-                    {isSelected ? <View style={[styles.selectedBorder, selectedBorderStyle]} /> : null}
+                    {isSelected ? <View style={[styles.selectedBorder, selectedBorderStyle]} /> : <View style={[styles.border, borderStyle]} />}
                 </TouchableOpacity>
             )
         })
@@ -99,6 +100,14 @@ const styles = StyleSheet.create({
     },
     selectedBorder: {
         backgroundColor: '#FF7200',
+        height: 2,
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0
+    },
+    border: {
+        backgroundColor: '#FF720000',
         height: 2,
         position: 'absolute',
         bottom: 0,
